@@ -338,6 +338,13 @@ module HassRequests
     )
   end
 
+  def activate_scene(entity_id)
+    send_data(
+      type: :call_service, domain: :scene, service: :turn_on,
+      target: { entity_id: entity_id }
+    )
+  end
+
   def dimmer_on(entity_id, level)
     send_data(
       type: :call_service, domain: :light, service: :turn_on,
